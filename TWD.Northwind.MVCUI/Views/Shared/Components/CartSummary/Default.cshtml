@@ -1,0 +1,22 @@
+﻿@model TWD.Northwind.MVCUI.Models.CartSummaryViewModel
+
+
+<ul class="dropdown-menu">
+    @foreach (var item in Model.Cart.CartLines)
+    {
+        <li class="nav-item">
+            <a class="dropdown-item">@item.Product.ProductName <span class="badge bg-secondary">@item.Quantity</span></a>
+        </li>
+    }
+
+    <li><hr class="dropdown-divider"></li>
+    <li>
+        <a class="dropdown-item"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>@Model.Cart.Total</a>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li>
+        @*<a class="dropdown-item" asp-controller="Cart" asp-action="List">Go to cart details</a>*@
+        <a href="/cart/list" class="dropdown-item">Go to cart details</a>
+        
+    </li>
+</ul>

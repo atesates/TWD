@@ -1,0 +1,39 @@
+﻿<Window x:Class="TWD.Northwind.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodels="clr-namespace:TWD.Northwind.WPF.ViewModels"
+        xmlns:views="clr-namespace:TWD.Northwind.WPF.Views"
+        xmlns:components="clr-namespace:TWD.Northwind.WPF.Components"
+        xmlns:local="clr-namespace:TWD.Northwind.WPF"
+        mc:Ignorable="d"
+        Title="TWD Fibres" Height="450" Width="800">
+	
+    <ContentControl Content="{Binding CurrentViewModel}">
+        <ContentControl.Resources>
+            <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
+                <views:HomeView  />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:AccountViewModel}">
+                <views:AccountView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:ProductListingViewModel}">
+                <views:ProductsListingView/>
+            </DataTemplate>
+    
+           
+            <DataTemplate DataType="{x:Type viewmodels:AddProductViewModel}">
+                <views:AddProductView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:LayoutViewModel}">
+                <components:Layout/>
+            </DataTemplate>
+        </ContentControl.Resources>
+
+        <!--<ContentControl.DataContext>
+            <viewmodels:ViewModelBase/>
+        </ContentControl.DataContext>-->
+    </ContentControl>
+
+</Window>

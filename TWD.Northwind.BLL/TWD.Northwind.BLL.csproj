@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.4.0" />
+    <PackageReference Include="Autofac.Extras.DynamicProxy" Version="6.0.1" />
+    <PackageReference Include="FluentValidation" Version="8.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TWD.Core\TWD.Core.csproj" />
+    <ProjectReference Include="..\TWD.Northwind.DAL\TWD.Northwind.DAL.csproj" />
+    <ProjectReference Include="..\TWD.Northwind.Entities\TWD.Northwind.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

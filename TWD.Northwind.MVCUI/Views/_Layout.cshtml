@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="/node_modules/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg" style="background-color: #6cebeb;">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Northwind</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <ul class="navbar-nav me-auto">
+
+                            <li class="nav-item"><a  class="nav-link" asp-controller="Account" asp-action="Login">Admin</a></li>
+                        </ul>
+                        <ul style="float:right;" class="navbar-nav me-auto navbar-right">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Cart
+                                </a>
+                                @await Component.InvokeAsync("CartSummary")
+
+                            </li>
+
+                        </ul>
+
+
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="row" style="margin:1%">
+            <div class="col-md-2">
+                @await Component.InvokeAsync("CategoryList")
+            </div>
+
+            <div class="col-md-9">
+                <div class="col-md-10">
+                    @if (TempData["message"] != null)
+                    {
+                        <div class="alert alert-info" role="alert">@TempData["message"]</div>
+                    }
+
+                    @RenderBody()
+                </div>
+            </div>
+            <div class="fixed-bottom col-md-12">
+                Footer
+            </div>
+        </div>
+    </div>
+</body>
+</html>
